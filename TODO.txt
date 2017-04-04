@@ -1,0 +1,52 @@
+Sécurité
+	# Sécuriser l'accès à MongoDB : utiliser les login/pass dans /server/config.js
+	# Sécuriser l'accès aux services REST : utiliser passeport/auth pour les routes /server/routes/rest
+	# Implémenter les rôles (ROLE_SYSADMIN, ROLE_DIROP, ROLE_SITEMANAGER, ROLE_PROJECTMANAGER, ROLE_OFFICEMANAGER, ROLE_DEV)
+		## ROLE_SYSADMIN : accès à tout
+		## ROLE_DIROP : accès à tout sauf configuration systeme
+		## ROLE_SITEMANAGER : accès à toutes les données de son site
+		## ROLE_PROJECTMANAGER : accès à tous ses projets et les devs rattachés 
+		## ROLE_OFFICEMANAGER : accès aux RH / CDG / Fournisseurs / Besoins / Devis
+		## ROLE_DEV : accès à ses projets
+
+Deploiement
+	# GULP
+		## paramétrer les tâches gulp : build, styles, scripts, serve, clean
+		## build : doit appeler [clean, styles, scripts] et copier les fichiers dans le répertoire config.gulp.public
+		## styles : doit compiler toutes les sources scss vers un unique css (1 css pour le login, 1 css pour 404, 1 css pour le reste)
+		## scripts : 
+		## serve : doit appeler watch et lancer le serveur
+		## watch : surveille les fichiers src (client), les compile et les copie dans config.gulp ET relance le serveur (browser sync)
+		## clean : doit effacer le contenu des répertoires de build (pointé par config.gulp.public)
+	# Faire un test de déploiement 
+		## copie de server, client/src, package.json; puis npm install
+		## voir si çà marche (et s'il n'y pas de package en trop)
+		## si çà marche, mettre les sources sur git
+	
+
+Conception
+	# module principale : wexApp
+	# création d'une nouvelle module : /js/app/modules
+	# User : username et email doivent être uniques
+	# Tableau : faire un directive (par défaut triable, filtrable, paginable)
+
+Features
+	# Login
+	# Header
+	# Sidebar : animer le sidebar (comme blur admin)
+	# Dashboard : contenu en fonction du rôle
+
+	# module user
+		## edit user : garder le password si pas changé (vérifier si c'est pas déjà le cas)
+	# module settings
+	# module crm
+	# module production
+		## affectation
+		## planning
+		## cra
+    # module cdg
+		## productivité
+		## rentabilité
+	# module RH
+		## Entretien / Test
+		## Congé

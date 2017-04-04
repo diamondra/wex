@@ -1,0 +1,16 @@
+<div>
+	<div class="row">
+		<div class="col-md-12">
+			<div ba-panel ba-panel-class="horizontal-tabs tabs-panel medium-panel">
+				<uib-tabset active="$tabSetStatus.activeTab">
+					<uib-tab heading="Type de projet">
+						<div ng-controller="SettingsCrmProjectTypeCtrl" ng-include="'/app/js/settings/crm/views/crm-project-type.html'"></div>
+					</uib-tab>
+					<uib-tab heading="Activités">
+						<div ng-controller="SettingsCrmActivityCtrl" ng-include="'/app/js/settings/crm/views/crm-activity.html'"></div>
+					</uib-tab>
+				</uib-tabset>
+			</div>
+		</div>
+	</div>
+</div>

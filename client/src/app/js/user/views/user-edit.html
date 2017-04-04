@@ -1,0 +1,60 @@
+<form ng-submit="submit()" name="wexForm.form_user">
+	<div class="widgets">
+		<div class="row">
+			<div class="col-md-12"
+				 ba-panel
+				 ba-panel-title="Infos générales"
+				 ba-panel-class="with-scroll">
+				<div class="form-group col-sm-3 col-xs-6">
+					<input type="text" class="form-control" name="firstname" ng-model="data.user.firstname" placeholder="Prénom">
+				</div>
+				<div class="form-group col-sm-3 col-xs-6">
+					<input type="text" class="form-control" name="lastname" ng-model="data.user.lastname" placeholder="Nom">
+				</div>
+				<div class="form-group col-sm-3 col-xs-6">
+					<input type="email" class="form-control" name="email" ng-model="data.user.email" placeholder="Email">
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12" ba-panel
+				  ba-panel-title="Accès"
+				  ba-panel-class="with-scroll">
+				<div class="form-group col-md-3">
+					<input type="text" class="form-control" name="username" ng-model="data.user.username" placeholder="Login">
+				</div>
+				<div class="form-group col-md-3">
+					<input type="password" class="form-control" name="password" ng-model="data.user.password" placeholder="Mot de passe">
+				</div>
+				<div class="form-group col-md-3">
+					<input type="password" class="form-control" name="password" placeholder="Confirmation mot de passe">
+				</div>				
+				<div class="form-group col-md-3">
+					<ui-select ng-model="data.user.role"
+							class="btn-group bootstrap-select form-control"
+							ng-disabled="false"
+							append-to-body="true"
+							search-enabled="false">
+						<ui-select-match placeholder="Rôle">
+							<span> {{$select.selected.name}}</span>
+						</ui-select-match>
+						<ui-select-choices repeat="role._id as role in roles track by $index">
+							<span ng-bind-html="role.name"></span>
+						</ui-select-choices>
+					</ui-select>
+				</div>				
+			</div>
+			<div class="col-md-12" ba-panel
+				  ba-panel-title="Fonctions"
+				  ba-panel-class="with-scroll">
+				<div class="form-group col-md-3">
+					<input type="text" class="form-control" name="job" ng-model="data.user.job" placeholder="Fonction">
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<wex-form-action-btn btn-submit-title="Valider" btn-cancel-title="Annuler" btn-cancel-href="#/user"></wex-form-action-btn>
+
+</form>

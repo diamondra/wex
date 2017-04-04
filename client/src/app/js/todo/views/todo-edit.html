@@ -1,0 +1,14 @@
+<form ng-submit="submit()" name="wexForm.form_todo">
+	<div class="widgets">
+		<div class="row">
+			<div class="col-md-12">
+				<div ba-panel ba-panel-title="Infos générales" ba-panel-class="with-scroll">
+					<div class="form-group"><input name="name" class="form-control" ng-model="data.todo.name" placeholder="Nom"/></div>
+					<div class="form-group"><input name="note" class="form-control" ng-model="data.todo.note" placeholder="Note" /></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<input type="hidden" name="owner" ng-model="data.todo.owner" />
+	<wex-form-action-btn btn-submit-title="Valider" btn-cancel-title="Annuler" btn-cancel-href="#/todo"></wex-form-action-btn>
+</form>

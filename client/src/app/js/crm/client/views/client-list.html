@@ -1,0 +1,45 @@
+<div class="widgets">
+	<div class="row">
+		<div class="col-md-12" ba-panel ba-panel-title="{{title}} ({{entities.length}})" ba-panel-class="with-scroll" ba-panel-right-link="#/crm/client/create" ba-panel-right-icon="ion-plus">
+			<div class="horizontal-scroll">
+			  <table class="table table-hover" st-table="entities" st-safe-src="entities_safe">
+				<thead>
+					<tr class="sortable ">
+						<th class="table-id" st-sort="id" st-sort-default="true">#</th>
+						<th st-sort="name">Nom</th>
+						<th st-sort="is_prospect">Prospect</th>
+						<th></th>
+					</tr>
+					<tr>
+						<th></th>
+						<th><input st-search="name" placeholder="Search Name" class="input-sm form-control search-input"
+								 type="search"/></th>
+						<th><input st-search="is_prospect" placeholder="Search Prospect" class="input-sm form-control search-input"
+								 type="search"/>
+						</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+				<tr ng-repeat="client in entities">
+					<td class="table-id">{{todo.id}}</td>
+					<td>{{client.name}}</td>
+					<td>{{client.is_prospect}}</td>
+					<td style="padding-right:0!important;" class="text-right">
+						<a ng-href="#/crm/client/edit/{{client._id}}" class="btn btn-xs btn-info"><i class="icon ion-edit"></i></a> 
+						<a wex-modal-confirm-message="Etes-vous sur de vouloir supprimer [{{client.name}}] ?" wex-modal-confirm="delete(client._id)" class="btn btn-xs btn-danger"><i class="icon ion-close-round"></i></a>
+					</td>
+				</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="4">
+							<div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+						</td>
+					</tr>
+				</tfoot>
+			  </table>
+			</div>		
+		</div>
+	</div>
+</div>

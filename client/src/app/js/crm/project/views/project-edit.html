@@ -1,0 +1,40 @@
+<form ng-submit="submit()" name="wexForm.form_project">
+	<div class="widgets">
+		<div class="row">
+			<div class="col-md-12">
+				<div ba-panel ba-panel-title="Infos générales" ba-panel-class="with-scroll">
+					<div class="form-group"><input name="name" class="form-control" ng-model="data.project.name" placeholder="Nom"/></div>
+					<div class="form-group">
+						<ui-select ng-model="data.project.client"
+								class="btn-group bootstrap-select form-control"
+								ng-disabled="false"
+								append-to-body="true"
+								search-enabled="false">
+							<ui-select-match placeholder="Client">
+								<span> {{$select.selected.name}}</span>
+							</ui-select-match>
+							<ui-select-choices repeat="client._id as client in clients track by $index">
+								<span ng-bind-html="client.name"></span>
+							</ui-select-choices>
+						</ui-select>
+					</div>
+					<div class="form-group">
+						<ui-select ng-model="data.project.project_type"
+								class="btn-group bootstrap-select form-control"
+								ng-disabled="false"
+								append-to-body="true"
+								search-enabled="false">
+							<ui-select-match placeholder="Type">
+								<span> {{$select.selected.name}}</span>
+							</ui-select-match>
+							<ui-select-choices repeat="project_type._id as project_type in projectTypes track by $index">
+								<span ng-bind-html="project_type.name"></span>
+							</ui-select-choices>
+						</ui-select>
+					</div>					
+				</div>
+			</div>
+		</div>
+	</div>
+	<wex-form-action-btn btn-submit-title="Valider" btn-cancel-title="Annuler" btn-cancel-href="#/crm/project"></wex-form-action-btn>
+</form>

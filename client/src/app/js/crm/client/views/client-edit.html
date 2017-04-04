@@ -1,0 +1,18 @@
+<form ng-submit="submit()" name="wexForm.form_client">
+	<div class="widgets">
+		<div class="row">
+			<div class="col-md-12">
+				<div ba-panel ba-panel-title="Infos générales" ba-panel-class="with-scroll">
+					<div class="form-group"><input name="name" class="form-control" ng-model="data.client.name" placeholder="Nom"/></div>
+					<div class="form-group">
+						<label class="checkbox-inline custom-checkbox nowrap">
+							<input name="is_prospect" type="checkbox" id="inlineCheckbox01" ng-model="data.client.is_prospect">
+							<span>Prospect</span>
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<wex-form-action-btn btn-submit-title="Valider" btn-cancel-title="Annuler" btn-cancel-href="#/crm/client"></wex-form-action-btn>
+</form>
