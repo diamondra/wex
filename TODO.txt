@@ -1,15 +1,8 @@
 Sécurité
 	# Sécuriser l'accès à MongoDB : utiliser les login/pass dans /server/config.js
-	# Sécuriser l'accès aux services REST : utiliser passeport/auth pour les routes /server/routes/rest
-	# Implémenter les rôles (ROLE_SYSADMIN, ROLE_DIROP, ROLE_SITEMANAGER, ROLE_PROJECTMANAGER, ROLE_OFFICEMANAGER, ROLE_DEV)
-		## ROLE_SYSADMIN : accès à tout
-		## ROLE_DIROP : accès à tout sauf configuration systeme
-		## ROLE_SITEMANAGER : accès à toutes les données de son site
-		## ROLE_PROJECTMANAGER : accès à tous ses projets et les devs rattachés 
-		## ROLE_OFFICEMANAGER : accès aux RH / CDG / Fournisseurs / Besoins / Devis
-		## ROLE_DEV : accès à ses projets
 
 Deploiement
+	# install and configure bower correctly
 	# GULP
 		## paramétrer les tâches gulp : build, styles, scripts, serve, clean
 		## build : doit appeler [clean, styles, scripts] et copier les fichiers dans le répertoire config.gulp.public

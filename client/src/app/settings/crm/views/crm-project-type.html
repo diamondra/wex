@@ -1,0 +1,43 @@
+<div ba-panel ba-panel-title="Liste des types de projets" ba-panel-class="with-scroll" class="projecttype">
+	<div class="vertical-scroll">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+				  <th class="table-id">#</th>
+				  <th>Nom</th>
+				  <th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="pt in entities">
+					<td class="table-id">{{pt.id}}</td>
+					<td>{{pt.name}}</td>
+					<td class="text-right">
+						<button class="btn btn-xs btn-default">Activités</button>
+						<a class="btn btn-xs btn-info" ng-click="edit(pt._id, $index)"><i class="icon ion-edit"></i></a> 
+						<a wex-modal-confirm-message="Etes-vous sur de vouloir supprimer [{{pt.name}}] ?" wex-modal-confirm="delete(pt._id)" class="btn btn-xs btn-danger"><i class="icon ion-close-round"></i></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="separator"></div>
+<div>
+<form ng-submit="submit()" name="wexForm.form_projecttype">
+	<div class="widgets">
+		<div class="row">
+			<div class="col-md-12"><h3><span ng-if="id">Editer</span><span ng-if="!id">Créer</span> un type de projet</h3></div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+					<div class="form-group"><input name="name" class="form-control" ng-model="data.projecttype.name" placeholder="Nom"/></div>
+					<div class="btn-group" role="group">
+						<button type="submit" class="btn btn-success">Valider</button>
+						<button ng-click="cancel()" class="btn btn-default">Annuler</button>
+					</div>
+			</div>
+		</div>
+	</div>
+</form>
+</div>

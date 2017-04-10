@@ -15,7 +15,6 @@ router.get('/', function(req, res, next) {
 /* GET /user/current : get auth user infos*/
 router.get('/current', function(req, res, next) {
 	//get user from passport
-	console.log(req.user);
 	res.json(req.user);
 });
 

@@ -8,5 +8,6 @@ router.use('/client', require('./clients'));
 router.use('/project', require('./projects'));
 router.use('/projecttype', require('./projecttype'));
 router.use('/activity', require('./activity'));
+router.use('/assignment', require('./assignment'));
 
 module.exports = router;

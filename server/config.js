@@ -1,5 +1,5 @@
 module.exports = {
-    development: {
+    dev: {
         db: {
 			driver : 'mongodb',
             port: 27017,
@@ -9,15 +9,33 @@ module.exports = {
             pass: 'wex'
             },
         http: {
+            port: 3000
+            },
+		gulp : {
+			src: 'client/src',
+			public : 'client/public/.tmp',
+			e2e: 'e2e'
+		}
+	},
+    staging: {
+        db: {
+			driver : 'mongodb',
+            port: 27017,
+            host: '127.0.0.1',
+            name: 'wex-staging',
+            user: 'wex',
+            pass: 'wex'
+            },
+        http: {
             port: 3002
             },
 		gulp : {
 			src: 'client/src',
-			public : 'client/public/dev',
+			public : 'client/public/dev-release',
 			e2e: 'e2e'
 		}
-	},
-    production: {
+	},	
+    prod: { //TO BE SET
         db: {
 			driver : 'mongodb',
             port: 29017,

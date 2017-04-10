@@ -10,7 +10,7 @@ var LocalStrategy = require('passport-local').Strategy;
 
 var formDataMiddleware = require('./routes/rest/formDataMiddleware');
 
-var config = require('./config')[(process.env.NODE_ENV || "development")];
+var config = require('./config')[(process.env.NODE_ENV || "dev")]; // change env here
 
 var app = express();
 

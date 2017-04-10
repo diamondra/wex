@@ -1,0 +1,29 @@
+<aside class="al-sidebar" ng-swipe-right="$baSidebarService.setMenuCollapsed(false)" ng-swipe-left="$baSidebarService.setMenuCollapsed(true)">
+	<nav ng-controller="SidebarCtrl">
+		<ul class="al-sidebar-list">
+			<li ng-repeat="item in menu" ng-if="hasRole(item.role) && checkProductive(item.needsProductive)" class="al-sidebar-list-item" ng-class="{ 'selected' : item.active}" >
+				<a href="{{item.url}}" class="al-sidebar-list-link" ng-click="toggleActive($index)" ng-if="!item.subMenu">
+					<i class="{{item.icon}}"></i><span>{{item.name}}</span>
+				</a>
+				<a ng-mouseenter="hoverItem($event, item)" ng-if="item.subMenu"
+				 class="al-sidebar-list-link" ba-ui-sref-toggler>
+					<i class="{{item.icon }}"></i><span>{{ item.name }}</span>
+					<b class="fa fa-angle-down" ui-sref-active="fa-angle-up"
+				   ng-if="item.subMenu"></b>
+				</a>
+				<ul ng-if="item.subMenu" class="al-sidebar-sublist"
+				  ng-class="{'slide-right': item.slideRight}"
+				  ba-ui-sref-toggling-submenu>
+					<li ng-repeat="subitem in item.subMenu" ui-sref-active="selected"
+						ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item">
+						<a href="{{subitem.url}}" ng-mouseenter="hoverItem($event, item)" ba-ui-sref-toggler
+							 class="al-sidebar-list-link subitem-submenu-link"><span>{{ subitem.name }}</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<div class="sidebar-hover-elem" ng-style="{top: hoverElemTop + 'px', height: hoverElemHeight + 'px'}"
+       ng-class="{'show-hover-elem': showHoverElem }"></div>
+	</nav>
+</aside>

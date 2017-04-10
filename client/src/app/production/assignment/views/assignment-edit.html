@@ -1,0 +1,52 @@
+<form ng-submit="submit()" name="wexForm.form_assignment">
+	<div class="widgets">
+		<div class="row">
+			<div class="col-md-12">
+				<div ba-panel ba-panel-title="Infos générales" ba-panel-class="with-scroll">
+					<div class="form-group">
+						<ui-select ng-model="data.assignment.project"
+								class="btn-group bootstrap-select form-control"
+								ng-disabled="false"
+								append-to-body="true"
+								search-enabled="false">
+							<ui-select-match placeholder="Projet">
+								<span> {{$select.selected.name}}</span>
+							</ui-select-match>
+							<ui-select-choices repeat="project._id as project in projects track by $index">
+								<span ng-bind-html="project.name"></span>
+							</ui-select-choices>
+						</ui-select>	
+					</div>
+					<div class="form-group">					
+						<ui-select ng-model="data.assignment.user"
+								class="btn-group bootstrap-select form-control"
+								ng-disabled="false"
+								append-to-body="true"
+								search-enabled="false">
+							<ui-select-match placeholder="User">
+								<span> {{$select.selected.username}}</span>
+							</ui-select-match>
+							<ui-select-choices repeat="user._id as user in users track by $index">
+								<span ng-bind-html="user.username"></span>
+							</ui-select-choices>
+						</ui-select>
+					</div>
+					<div class="form-group">
+						<ion-slider type="double"
+									grid="true"
+									min="minAssignmentDate"
+									max="maxAssignmentDate"
+									from="from"
+									to="to"
+									prettify="wexPrettifyDate"
+									step="604800"
+									on-change="sliderOnChange"
+									>
+						</ion-slider>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<wex-form-action-btn btn-submit-title="Valider" btn-cancel-title="Annuler" btn-cancel-href="#/production/assignment"></wex-form-action-btn>
+</form>

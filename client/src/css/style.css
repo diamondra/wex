@@ -1,0 +1,13 @@
+.wex-form-action-btn{
+	position:fixed;bottom:20px;
+	background-color: rgba(0, 0, 0, 0.75);
+	border-radius:10px;
+	padding:20px;
+	opacity:0.4;
+}
+.wex-form-action-btn a.btn-default{border-width: 1px;color: #ffffff;background: transparent;border-color: #ffffff;}
+.wex-form-action-btn:hover{opacity:1;}
+
+.projecttype .panel-body, .activity .panel-body  {height:130px!important;}
+
+.irs-disabled{opacity:1.0;}

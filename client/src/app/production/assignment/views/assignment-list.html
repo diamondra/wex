@@ -1,0 +1,59 @@
+<div class="widgets">
+	<div class="row">
+		<div class="col-md-12" ba-panel ba-panel-title="{{title}} ({{entities.length}})" ba-panel-class="with-scroll" ba-panel-right-link="#/production/assignment/create" ba-panel-right-icon="ion-plus">
+			<div class="horizontal-scroll">
+			  <table class="table table-hover" st-table="entities" st-safe-src="entities_safe">
+				<thead>
+					<tr class="sortable ">
+						<th class="table-id" st-sort="id" st-sort-default="true">#</th>
+						<th st-sort="user.firstname">Dev</th>
+						<th st-sort="project.name">Projet</th>
+						<th colspan="2" width="60%">Période</th>
+						<th></th>
+					</tr>
+					<tr>
+						<th></th>
+						<th><input st-search="user.firstname" placeholder="Search Dev" class="input-sm form-control search-input"
+								 type="search"/></th>
+						<th><input st-search="project.name" placeholder="Search Project" class="input-sm form-control search-input"
+								 type="search"/>
+						</th>
+						<th colspan="2"></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+				<tr ng-repeat="assignment in entities">
+					<td class="table-id">{{assignment.id}}</td>
+					<td width="10%">{{assignment.user.firstname}}</td>
+					<td width="20%">{{assignment.project.name}}</td>
+					<td colspan="2" width="60%">
+						<ion-slider type="double"
+									grid="false"
+									min="minAssignmentDate"
+									max="maxAssignmentDate"
+									from="assignment.moment_start"
+									to="assignment.moment_end"
+									prettify="wexPrettifyDate"
+									disable="true"
+									>
+						</ion-slider>
+					</td>
+					<td style="padding-right:0!important;" class="text-right">
+						<a ng-href="#/production/assignment/edit/{{assignment._id}}" class="btn btn-xs btn-info"><i class="icon ion-edit"></i></a> 
+						<a wex-modal-confirm-message="Etes-vous sur de vouloir supprimer cette assignation ?" wex-modal-confirm="delete(assignment._id)" class="btn btn-xs btn-danger"><i class="icon ion-close-round"></i></a>
+					</td>
+				</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="6">
+							<div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+						</td>
+					</tr>
+				</tfoot>
+			  </table>
+			</div>		
+		</div>
+	</div>
+</div>

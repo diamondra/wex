@@ -1,0 +1,38 @@
+<div class="widgets">
+	<div class="row">
+		<div class="col-md-12" ba-panel ba-panel-title="{{title}} ({{entities.length}})" ba-panel-class="with-scroll" ba-panel-right-link="#/todo/create" ba-panel-right-icon="ion-plus">
+			<div class="horizontal-scroll">
+			  <table class="table table-hover" st-table="entities" st-safe-src="entities_safe">
+				<thead>
+					<tr class="sortable ">
+					  <th class="table-id" st-sort="id" st-sort-default="true">#</th>
+					  <th st-sort="name">Nom</th>
+					  <th st-sort="note">Note</th>
+					</tr>
+					<tr>
+					  <th></th>
+					  <th><input st-search="name" placeholder="Search Name" class="input-sm form-control search-input"
+								 type="search"/></th>
+					  <th><input st-search="note" placeholder="Search Note" class="input-sm form-control search-input"
+								 type="search"/></th>
+					</tr>
+				</thead>
+				<tbody>
+				<tr ng-repeat="todo in entities">
+					<td class="table-id">{{todo.id}}</td>
+					<td>{{todo.name}}</td>
+					<td>{{todo.note}}</td>
+				</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="6">
+							<div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+						</td>
+					</tr>
+				</tfoot>
+			  </table>
+			</div>		
+		</div>
+	</div>
+</div>

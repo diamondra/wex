@@ -1,5 +1,7 @@
-var config = require('./server/config')[(process.env.NODE_ENV || "development")];
+var config = require('./server/config')[(process.env.NODE_ENV || "dev")];
 var mongoose = require('mongoose');
+
+console.log("starting server in [" + (process.env.NODE_ENV || "dev") + "] environment...");
 
 // Use native Node promises
 mongoose.Promise = global.Promise;
