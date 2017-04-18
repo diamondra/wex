@@ -11,3 +11,7 @@
 .projecttype .panel-body, .activity .panel-body  {height:130px!important;}
 
 .irs-disabled{opacity:1.0;}
+
+.report .reporthead{width:50px;}
+.report input[type="text"] {width:25px;height:25px;padding:8px;border-radius:2px;}
+.report .reportcell{padding:5px;}

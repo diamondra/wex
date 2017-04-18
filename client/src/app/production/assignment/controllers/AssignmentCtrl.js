@@ -1,4 +1,4 @@
-appCrm.controller('AssignmentListCtrl', ['$scope', 'Assignment', function($scope, Assignment) 
+appProduction.controller('AssignmentListCtrl', ['$scope', 'Assignment', function($scope, Assignment) 
 {
     $scope.title = 'Liste des affectations';
 	$scope.smartTablePageSize = 10;
@@ -42,7 +42,7 @@ appCrm.controller('AssignmentListCtrl', ['$scope', 'Assignment', function($scope
     };	
 }]);
 
-appCrm.controller('AssignmentCreateCtrl', ['$scope', '$location', 'Assignment', 'Project', 'User', function($scope, $location, Assignment, Project, User) 
+appProduction.controller('AssignmentCreateCtrl', ['$scope', '$location', 'Assignment', 'Project', 'User', function($scope, $location, Assignment, Project, User) 
 {
 	//populate users select
 	$scope.users = [];
@@ -107,7 +107,7 @@ appCrm.controller('AssignmentCreateCtrl', ['$scope', '$location', 'Assignment', 
     };
 }]);
 
-appCrm.controller('AssignmentEditCtrl', ['$scope', '$routeParams', '$location', 'Assignment', 'Project', 'User', function($scope, $routeParams, $location, Assignment, Project, User) 
+appProduction.controller('AssignmentEditCtrl', ['$scope', '$routeParams', '$location', 'Assignment', 'Project', 'User', function($scope, $routeParams, $location, Assignment, Project, User) 
 {
 	//populate users select
 	$scope.users = [];

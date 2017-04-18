@@ -41,6 +41,7 @@ appSettings.constant(
 					icon: 'ion-compose',
 					active: false,
 					needsProductive : true,
+					role : [_roles.ROLE_DIR_OP, _roles.ROLE_SITE_MANAGER, _roles.ROLE_PROJECT_MANAGER],
 					subMenu : [
 						{
 							name : 'crm.client',
@@ -69,12 +70,31 @@ appSettings.constant(
 					subMenu : [
 						{
 							name : 'production.assignment',
-							title : 'Liste des affectations',
+							title : 'Affectations',
 							url : '#/production/assignment',
 							stateRef : 'production.assignment',
 							level:1,
 							active: false,
+							role : [_roles.ROLE_DIR_OP, _roles.ROLE_SITE_MANAGER, _roles.ROLE_OFFICE_MANAGER, _roles.ROLE_PROJECT_MANAGER]
 						},
+						{
+							name : 'production.activityreport.team',
+							title : 'Liste des activités',
+							url : '#/production/activityreport/team',
+							stateRef : 'production.activityreport.team',
+							level:1,
+							active: false,
+							role : [_roles.ROLE_SITE_MANAGER, _roles.ROLE_PROJECT_MANAGER]
+						},
+						{
+							name : 'production.activityreport.my',
+							title : 'Mes activités',
+							url : '#/production/activityreport/my/current',
+							stateRef : 'production.activityreport.my',
+							level:1,
+							active: false,
+							role : [_roles.ROLE_SITE_MANAGER, _roles.ROLE_PROJECT_MANAGER, _roles.ROLE_DEV]
+						},							
 					]
 				},				
 				{

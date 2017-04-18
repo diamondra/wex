@@ -1,0 +1,35 @@
+<div class="widgets report">
+	<div class="row">
+		<div class="col-md-12" 
+			ba-panel ba-panel-title="Semaine du {{daysOfWeek[0] | date: 'dd/MM/yyyy'}} au {{daysOfWeek[4] | date: 'dd/MM/yyyy'}}" 
+			ba-panel-class="with-scroll"
+			ba-panel-right-link="#/production/activityreport/my/{{prevWeek}}/{{year}}" ba-panel-button-class="btn-success" ba-panel-right-icon="ion-arrow-left-b"
+			ba-panel-right-link-2="#/production/activityreport/my/{{nextWeek}}/{{year}}" ba-panel-button-class-2="btn-success" ba-panel-right-icon-2="ion-arrow-right-b">
+			<table width="100%" class="table-striped">
+				<thead>
+					<tr>
+						<th>Projet</th>
+						<th>Tâches</th>
+						<th class="reporthead" ng-repeat="dt in daysOfWeek">{{dt | date: 'dd/MM'}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat-start="assignment in assignments">
+						<td rowspan="{{assignment.project.project_type.activities.length}}">{{assignment.project.name}}</td>
+						<td>{{assignment.project.project_type.activities[0].name}}</td>
+						<td class="reportcell" ng-repeat="rep in assignment.project.project_type.activities[0].reports track by $index" >
+							<div ng-class="{'has-success':assignment.project.project_type.activities[0].reports[$index].value>0}"><input type="text" class="form-control input-sm" ng-model="assignment.project.project_type.activities[0].reports[$index].value"/></div>
+						</td>
+					</tr>
+					<tr ng-repeat-end ng-repeat="act in assignment.project.project_type.activities" ng-if="$index > 0">
+						<td>{{act.name}}</td>
+						<td class="reportcell" ng-repeat="rep in act.reports track by $index" >
+							<div ng-class="{'has-success':act.reports[$index].value>0}"><input type="text" class="form-control input-sm" ng-model="act.reports[$index].value"/></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<wex-form-action-btn btn-submit-title="Valider" ng-click="report()"></wex-form-action-btn>

@@ -195,7 +195,7 @@ app.factory('Entity', ['$http', function($http)
                             });
                         },
             /*
-             * Fonction qui post une enté
+             * Fonction qui post une entité
              * @param object data : l'objet à poster, issu du modele du formulaire
              * @param success : callback appelée en cas de succès
              * @param error : callback appelée en cas d'erreur

@@ -19,8 +19,18 @@
         var res = '<div class="panel-body" ng-transclude></div>';
         if (attrs.baPanelTitle) {
 			var titleTpl = '<div class="panel-heading clearfix" ';
-			if (attrs.baPanelRightLink) {
-				titleTpl += 'style="display:flex;align-items:center;justify-content: space-between;"><div style="flex:1"><h3 class="panel-title">' + attrs.baPanelTitle + '</h3></div><div style="flex:1" class="text-right"><a href="'+attrs.baPanelRightLink+'" class="btn btn-mm btn-success"><i class="ion '+attrs.baPanelRightIcon+'"></i></a></div></div>';
+			if (attrs.baPanelRightLink || attrs.baPanelRightLink2) {
+				titleTpl += 'style="display:flex;align-items:center;justify-content: space-between;">';
+				titleTpl += '<div><h3 class="panel-title">' + attrs.baPanelTitle + '</h3></div>';
+				titleTpl += '<div style="flex:1;" class="text-right">';
+				if (attrs.baPanelRightLink){
+					titleTpl += '<a href="'+attrs.baPanelRightLink+'" class="btn btn-mm '+attrs.baPanelButtonClass+'" style="margin-right:5px;"><i class="ion '+attrs.baPanelRightIcon+'"></i></a>';
+				}
+				if (attrs.baPanelRightLink2){
+					titleTpl += '<a href="'+attrs.baPanelRightLink2+'" class="btn btn-mm '+attrs.baPanelButtonClass2+'"><i class="ion '+attrs.baPanelRightIcon2+'"></i></a>';
+				}				
+				titleTpl += '</div>';
+				titleTpl += '</div>';
 			}
 			else {
 				titleTpl += '><h3 class="panel-title">' + attrs.baPanelTitle + '</h3></div>';

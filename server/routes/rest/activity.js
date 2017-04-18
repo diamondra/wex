@@ -3,6 +3,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Activity = require('../../models/Settings/Activity');
+var ProjectType = require('../../models/Crm/ProjectType');
 
 const passport = require('passport');
 
@@ -26,7 +27,17 @@ router.get('/:id', function(req, res, next) {
 router.post('/', function(req, res, next) {
 	Activity.create(req.body, function (err, activity) {
 		if (err) return next(err);
-		res.json(activity);
+		
+		ProjectType.findById(activity.project_type, function (err, projectType) {
+			if (err) return next(err);
+			
+			projectType.activities.push(activity);
+			projectType.save(function(err){
+				if (err) return next(err);
+				res.json(activity);
+			});
+		});		
+
 	  });
 });
 
@@ -34,7 +45,7 @@ router.post('/', function(req, res, next) {
 router.put('/:id', function(req, res, next) {
   Activity.findByIdAndUpdate(req.params.id, req.body, function (err, activity) {
     if (err) return next(err);
-    res.json(activity);
+	res.json(activity);
   });
 });
 

@@ -3,15 +3,19 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var ProjectType = require('../../models/Crm/ProjectType');
+var Activity = require('../../models/Settings/Activity');
 
 const passport = require('passport');
 
 /* GET /ProjectTypes listing. */
 router.get('/', function(req, res, next) {
-  ProjectType.find().populate('client').exec(function (err, ProjectTypes) {
-    if (err) return next(err);
-    res.json(ProjectTypes);
-  });
+  ProjectType
+	.find()
+	.populate('activities')
+	.exec(function (err, projectType) {
+		if (err) return next(err);
+		res.json(projectType);
+	});
 });
 
 /* GET /ProjectTypes/id */

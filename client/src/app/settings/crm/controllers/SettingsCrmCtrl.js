@@ -102,7 +102,7 @@ appSettings.controller('SettingsCrmActivityCtrl', ['$scope', 'Activity', 'Projec
 	
 	getActivityList();
 	
-	$scope.projectTypes = {};
+	$scope.projectTypes = [];
 	ProjectType.getList(
 			$scope.filters,
 			function(data)

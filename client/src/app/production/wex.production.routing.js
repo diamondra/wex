@@ -24,4 +24,23 @@ appProduction.config(function($routeProvider, $locationProvider, WEX_CONFIG)
         templateUrl: '/app/production/assignment/views/assignment-edit.html',
 		title: 'Editer un affectation',
     })
+    //Activity report
+    .when('/production/activityreport/', {
+        controller: 'ActivityReportCtrl',
+		title: 'Mes activités',
+    })
+    .when('/production/activityreport/team', {
+        controller: 'ActivityReportTeamCtrl',
+		title: 'Activités de l\'équipe',
+    })
+    .when('/production/activityreport/:id/:wid', {
+        controller: 'ActivityReportEditCtrl',
+		templateUrl: '/app/production/activityreport/views/activityreport-edit.html',
+		title: 'Mes activités',
+    })
+    .when('/production/activityreport/:id/:wid/:year', {
+        controller: 'ActivityReportEditCtrl',
+		templateUrl: '/app/production/activityreport/views/activityreport-edit.html',
+		title: 'Mes activités',
+    })		
 });
